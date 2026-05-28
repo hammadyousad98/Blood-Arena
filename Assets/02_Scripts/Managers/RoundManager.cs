@@ -115,7 +115,32 @@ public class RoundManager : MonoBehaviour
 
         roundTimerCoroutine = StartCoroutine(RunRoundTimer(defaultRoundDuration));
     }
+private void OnEnable()
+{
+    CombatEvents.OnFighterDead += OnFighterKO;
+}
 
+private void OnDisable()
+{
+    CombatEvents.OnFighterDead -= OnFighterKO;
+}
+[ContextMenu("Start Round")]
+public void DebugStartRound()
+{
+    StartRound();
+}
+
+[ContextMenu("Pause Game")]
+public void DebugPause()
+{
+    PauseGame();
+}
+
+[ContextMenu("Resume Game")]
+public void DebugResume()
+{
+    ResumeGame();
+}
     /// <summary>
     /// Evaluates who wins when the timer expires.
     /// </summary>
