@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b8208e4139bc74a846a7c775f4297d, type: 3}
+  m_Name: BA_FighterDatabase_v1_2026-05-22
+  m_EditorClassIdentifier: 
+  player1Fighter: {fileID: 0}
+  player2Fighter: {fileID: 0}
+  p1HUDColor: {fileID: 0}
+  p2HUDColor: {fileID: 0}

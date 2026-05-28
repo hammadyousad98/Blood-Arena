@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af026ecad7b9dd643bac116ec24f1c5c, type: 3}
+  m_Name: BA_SessionConfig_v1_2026-05-22
+  m_EditorClassIdentifier: 
+  totalRounds: 3
+  roundDuration: 120
+  parryWindowMin: 6
+  parryWindowMax: 8
+  suddenDeathTimeout: 30
