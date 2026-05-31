@@ -2747,7 +2747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140af902138812c4c8c31158a9945da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultRoundDuration: 10
+  defaultRoundDuration: 120
 --- !u!1 &1214645782
 GameObject:
   m_ObjectHideFlags: 0
