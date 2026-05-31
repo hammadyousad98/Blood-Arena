@@ -18,11 +18,8 @@ EditorBuildSettings:
     path: Assets/01_Scenes/Arena_Round3_InfernalForge.unity
     guid: a160ae1c5daee7847b0912000b8e3296
   - enabled: 1
-    path: Assets/01_Scenes/VictoryScreen.unity
-    guid: b1a399292de058c4da3eef4021736f2a
-  - enabled: 1
-    path: Assets/01_Scenes/DefeatScreen.unity
-    guid: 719c1b80f9f7cc2489ff346638ea8bec
+    path: Assets/01_Scenes/EndScreen.unity
+    guid: 3413cb4677c835f42aed08a216de20d5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 4e90704144d529b4ca8059788af6ab42,
       type: 3}

@@ -220,17 +220,23 @@ public void DebugResume()
         if (SessionData.p1RoundWins >= 2)
         {
             SessionData.winnerName = "Player 1";
-            OnMatchOver?.Invoke(SessionData.winnerName);
+            StartCoroutine(LoadEndScreen());
             return true;
         }
         else if (SessionData.p2RoundWins >= 2)
         {
             SessionData.winnerName = "Player 2";
-            OnMatchOver?.Invoke(SessionData.winnerName);
+            StartCoroutine(LoadEndScreen());
             return true;
         }
 
         return false;
+    }
+
+    private IEnumerator LoadEndScreen()
+    {
+        yield return new WaitForSecondsRealtime(1.5f);
+        SceneManager.LoadScene("EndScreen");
     }
 
     /// <summary>

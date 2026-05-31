@@ -13,6 +13,8 @@ public class ArenaController : MonoBehaviour
     [Tooltip("Black full-screen image for transitions.")]
     [SerializeField] private Image fadeImage;
 
+    public FighterSpawner spawner;
+
     private void Awake()
     {
         // 1. Play background music
@@ -23,26 +25,27 @@ public class ArenaController : MonoBehaviour
         }
 
         // 2. Find spawn points and spawn fighters
-        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
-        Transform p1Spawn = null;
-        Transform p2Spawn = null;
+        // GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        // Transform p1Spawn = null;
+        // Transform p2Spawn = null;
 
-        foreach (var sp in spawnPoints)
-        {
-            if (sp.name.Contains("P1")) p1Spawn = sp.transform;
-            if (sp.name.Contains("P2")) p2Spawn = sp.transform;
-        }
+        // foreach (var sp in spawnPoints)
+        // {
+        //     if (sp.name.Contains("P1")) p1Spawn = sp.transform;
+        //     if (sp.name.Contains("P2")) p2Spawn = sp.transform;
+        // }
 
-        if (p1Spawn != null && p2Spawn != null)
-        {
-            // Assuming FighterSpawner exists and handles instantiation/resetting
-            // FighterSpawner.SpawnFighters(p1Spawn, p2Spawn);
-            Debug.Log($"ArenaController: FighterSpawner.SpawnFighters called for {p1Spawn.name} and {p2Spawn.name}");
-        }
-        else
-        {
-            Debug.LogWarning("ArenaController: Could not find SpawnP1 or SpawnP2 tagged as 'SpawnPoint'.");
-        }
+        // if (p1Spawn != null && p2Spawn != null)
+        // {
+        //     // Assuming FighterSpawner exists and handles instantiation/resetting
+        //     FighterSpawner.SpawnFighters();
+        //     Debug.Log($"ArenaController: FighterSpawner.SpawnFighters called for {p1Spawn.name} and {p2Spawn.name}");
+        // }
+        // else
+        // {
+        //     Debug.LogWarning("ArenaController: Could not find SpawnP1 or SpawnP2 tagged as 'SpawnPoint'.");
+        // }
+        spawner.SpawnFighters();
 
         // Start Round
         RoundManager rm = Object.FindObjectOfType<RoundManager>();
@@ -119,15 +122,15 @@ public class ArenaController : MonoBehaviour
 
         // 2. Load Victory or Defeat screen based on the winner
         // This assumes Player 1 represents the local user (Victory), otherwise Defeat.
-        string nextScene = "";
-        if (!string.IsNullOrEmpty(winnerName))
-        {
-            nextScene = winnerName.Contains("1") ? "VictoryScreen" : "DefeatScreen";
-        }
-        else
-        {
-            nextScene = SessionData.winnerName.Contains("1") ? "VictoryScreen" : "DefeatScreen";
-        }
+        string nextScene = "EndScreen";
+        // if (!string.IsNullOrEmpty(winnerName))
+        // {
+        //     nextScene = winnerName.Contains("1") ? "VictoryScreen" : "DefeatScreen";
+        // }
+        // else
+        // {
+        //     nextScene = SessionData.winnerName.Contains("1") ? "VictoryScreen" : "DefeatScreen";
+        // }
 
         SceneManager.LoadScene(nextScene);
     }
