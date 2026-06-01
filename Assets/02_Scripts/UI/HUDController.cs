@@ -52,43 +52,50 @@ public class HUDController : MonoBehaviour
         if (pauseBtn != null)
         {
             pauseButton = pauseBtn.GetComponent<Button>();
-            RoundManager rm = Object.FindObjectOfType<RoundManager>();
-            if (rm != null)
+            PauseMenuController pauseMenu = Object.FindObjectOfType<PauseMenuController>(true);
+            if (pauseMenu != null)
             {
-                pauseButton.onClick.AddListener(() => {
-                    if (SessionData.isPaused) rm.ResumeGame();
-                    else rm.PauseGame();
-                });
+                pauseButton.onClick.AddListener(() => pauseMenu.TogglePauseMenu());
             }
         }
+
+        // Initialize round counter immediately from SessionData
+        // in case OnRoundStart already fired before we subscribed
+        SetRound(SessionData.currentRound);
     }
 
     private void OnEnable()
     {
         RoundManager.OnTimerTick += SetTimer;
+        RoundManager.OnRoundStart += SetRound;
         RoundManager.OnRoundWin += HandleRoundWin;
         RoundManager.OnMatchOver += HandleMatchOver;
         RoundManager.OnSuddenDeathStart += ShowSuddenDeath;
 
-        // NOTE: Please adjust FighterController event bindings if your signatures are different!
-        // FighterController.OnP1HPChanged += UpdateP1HP;
-        // FighterController.OnP2HPChanged += UpdateP2HP;
+        FighterController.OnP1HPChanged += UpdateP1HP;
+        FighterController.OnP2HPChanged += UpdateP2HP;
     }
 
     private void OnDisable()
     {
         RoundManager.OnTimerTick -= SetTimer;
+        RoundManager.OnRoundStart -= SetRound;
         RoundManager.OnRoundWin -= HandleRoundWin;
         RoundManager.OnMatchOver -= HandleMatchOver;
         RoundManager.OnSuddenDeathStart -= ShowSuddenDeath;
 
-        // FighterController.OnP1HPChanged -= UpdateP1HP;
-        // FighterController.OnP2HPChanged -= UpdateP2HP;
+        FighterController.OnP1HPChanged -= UpdateP1HP;
+        FighterController.OnP2HPChanged -= UpdateP2HP;
     }
 
     private void HandleRoundWin(string winnerName)
     {
-        StartCoroutine(ShowFeedback(winnerName + " WINS!", Color.white));
+        // Update skull icons to reflect current round wins
+        SetP1Wins(SessionData.p1RoundWins);
+        SetP2Wins(SessionData.p2RoundWins);
+
+        // Show feedback
+        StartCoroutine(ShowFeedback(winnerName + " WINS THE ROUND!", Color.white));
     }
 
     private void HandleMatchOver(string winnerName)

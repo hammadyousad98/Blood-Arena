@@ -170,7 +170,7 @@
                     "name": "LightAttack",
                     "type": "Button",
                     "id": "59b48c66-990a-4876-b638-34f3b7d1eb25",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -197,7 +197,7 @@
                     "name": "Dodge",
                     "type": "Button",
                     "id": "42ffad84-4ab2-4b2a-a929-a1b7e67f6c6d",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -273,7 +273,7 @@
                 {
                     "name": "",
                     "id": "c138b30e-7c5b-4279-b1d7-d703bc2e2a04",
-                    "path": "<Keyboard>/numpad0",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -295,7 +295,7 @@
                 {
                     "name": "",
                     "id": "5170d189-bc8c-4f81-a968-3be3a7b62846",
-                    "path": "<Keyboard>/numpadEnter",
+                    "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

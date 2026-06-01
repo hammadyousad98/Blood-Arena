@@ -21,13 +21,13 @@ MonoBehaviour:
     moveName: kick
     type: 0
     damage: 12
-    startupFrames: 5
-    activeFrames: 0
+    startupFrames: 34
+    activeFrames: 16
     sfxFile: 
   - moveID: 2
     moveName: kick 2
     type: 1
     damage: 28
-    startupFrames: 5
-    activeFrames: 0
+    startupFrames: 68
+    activeFrames: 8
     sfxFile: 

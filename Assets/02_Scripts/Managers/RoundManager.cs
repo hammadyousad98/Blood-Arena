@@ -94,6 +94,7 @@ public class RoundManager : MonoBehaviour
     public static event Action OnRoundDraw;
     public static event Action<string> OnRoundWin; // winner name
     public static event Action<string> OnMatchOver; // winner name
+    public static event Action<int> OnRoundStart; // fires with current round number
 
     // Cache the coroutines so they can be stopped if needed
     private Coroutine roundTimerCoroutine;
@@ -109,6 +110,9 @@ public class RoundManager : MonoBehaviour
         SessionData.roundElapsedSeconds = 0f;
         SessionData.sessionActive = true;
         SessionData.isSuddenDeath = false;
+
+        // Announce the round number to all listeners (HUD, etc.)
+        OnRoundStart?.Invoke(SessionData.currentRound);
 
         if (roundTimerCoroutine != null)
             StopCoroutine(roundTimerCoroutine);
@@ -187,11 +191,11 @@ public void DebugResume()
 
         SessionData.sessionActive = false;
 
-        // Determine the winner based on the loser
-        // Note: Replace the identification logic below if FighterController handles player IDs differently
-        string winner = "";
-        bool isLoserP1 = loser.gameObject.name.Contains("1") || loser.CompareTag("Player1");
+        // Use PlayerIndex instead of tags — clean and reliable
+        bool isLoserP1 = loser.inputReader != null &&
+                         loser.inputReader.playerIndex == PlayerIndex.Player1;
 
+        string winner;
         if (isLoserP1)
         {
             winner = "Player 2";
@@ -342,8 +346,16 @@ public void DebugResume()
 
         SessionData.currentRound++;
 
-        // Load the correct arena scene
-        string sceneName = "Arena_Round" + SessionData.currentRound;
+        // Must match EXACT scene names in Build Settings
+        string sceneName = SessionData.currentRound switch
+        {
+            1 => "Arena_Round1_DragonCourtyard",
+            2 => "Arena_Round2_CursedCrypt",
+            3 => "Arena_Round3_InfernalForge",
+            _ => "EndScreen"
+        };
+
+        Debug.Log($"Loading scene: {sceneName} for round {SessionData.currentRound}");
         SceneManager.LoadScene(sceneName);
     }
 

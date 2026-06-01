@@ -66,7 +66,7 @@ public class PauseMenuController : MonoBehaviour
         
         // Ensure unpaused state before reloading the arena
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Arena_Round1");
+        SceneManager.LoadScene("Arena_Round1_DragonCourtyard");
     }
 
     public void OnMainMenuClicked()

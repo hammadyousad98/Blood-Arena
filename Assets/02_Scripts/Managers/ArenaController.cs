@@ -17,6 +17,9 @@ public class ArenaController : MonoBehaviour
 
     private void Awake()
     {
+        // Lock game to 60 FPS for consistent fighting game logic
+        Application.targetFrameRate = 60;
+
         // 1. Play background music
         if (ambientLoopSource != null)
         {
