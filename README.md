@@ -53,19 +53,7 @@ Assets/
 └── 04_InputActions/         # InputActions_BloodArena.inputactions definition
 ```
 
-## 7. Asset Credits
-The following CC0/Open Source assets were utilized to bring Blood Arena to life:
-
-| Asset | Source | License |
-| :--- | :--- | :--- |
-| *Arena Ambience Audio* | OpenGameArt.org | CC0 Public Domain |
-| *Impact SFX Pack* | FreeSound.org | CC0 Public Domain |
-| *Placeholder UI Font* | Google Fonts | SIL Open Font License |
-| *Basic Fighter Models* | Kenney.nl | CC0 Public Domain |
-
-*(Note: Replace with actual asset credits as production evolves.)*
-
-## 8. Technical Notes
+## 7. Technical Notes
 - **Engine Version:** Developed in Unity 2022.3 LTS.
 - **Render Pipeline:** Universal Render Pipeline (URP 14.x) for optimized visual fidelity and performance.
 - **Input System:** Unity's New Input System package.
