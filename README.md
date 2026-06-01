@@ -10,9 +10,9 @@ Both players play locally on the same keyboard. The controls are fully mapped us
 | :--- | :--- | :--- |
 | **Move (Left/Right/Crouch/Jump)** | `W`, `A`, `S`, `D` | `Up`, `Left`, `Down`, `Right` Arrows |
 | **Light Attack** | `Q` | `Right Ctrl` |
-| **Heavy Attack** | `F` | `Numpad 0` |
+| **Heavy Attack** | `F` | `P` |
 | **Block / Parry** | `E` | `Right Shift` |
-| **Dodge** | `C` | `Numpad Enter` |
+| **Dodge** | `C` | `O` |
 
 *Pro-tip: Time your block perfectly as an enemy strike lands to trigger a parry, opening them up for a devastating counter-attack.*
 
